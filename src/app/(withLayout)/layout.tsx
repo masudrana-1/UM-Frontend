@@ -1,10 +1,14 @@
+import SideBar from "@/components/ui/sidebar";
+import { Layout } from "antd";
 
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
     return (
-        <div>
-            {children}
-        </div>
+        <Layout>
+            <SideBar>
+                {children}
+            </SideBar>
+        </Layout>
     );
 };
 

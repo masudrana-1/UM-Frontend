@@ -2,12 +2,16 @@
 
 import { useState } from "react";
 import { Layout, Menu } from "antd";
+import { sidebarItems } from "@/constants/sidebaritems";
+import { USER_ROLE } from "@/constants/role";
 
 
 const { Sider } = Layout;
 
 const SideBar = () => {
     const [collapsed, setCollapsed] = useState(false);
+
+    const role = USER_ROLE.ADMIN;
 
     return (
         <Sider
@@ -39,7 +43,7 @@ const SideBar = () => {
                 theme="dark"
                 defaultSelectedKeys={["1"]}
                 mode="inline"
-                items={items}
+                items={sidebarItems(role)}
             />
         </Sider>
     );

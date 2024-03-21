@@ -5,8 +5,8 @@ import UMBreadCrumb from "./UMBreadCrumb";
 const { Content } = Layout;
 
 const Contents = ({ children }: { children: React.ReactNode }) => {
-  const base = "admin";
-  return (
+    const base = "admin";
+    return (
         <Content
             style={{
                 minHeight: "100vh",

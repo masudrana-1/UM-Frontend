@@ -21,14 +21,19 @@ const Form = ({ children, submitHandler, defaultValues }: FormProps) => {
     if (!!defaultValues) formConfig["defaultValues"] = defaultValues;
 
 
-    const methods = useForm(formConfig);
+    const methods = useForm<FormProps>(formConfig);
 
-    const onSubmit = (data) => console.log(data);
+    const { handleSubmit, reset } = methods;
+
+    const onSubmit = (data: any) => {
+        submitHandler(data);
+        reset();
+    };
 
     return (
         <FormProvider {...methods}>
-            <form onSubmit={methods.handleSubmit(onSubmit)}>
-
+            <form onSubmit={handleSubmit(onSubmit)}>
+                {children}
             </form>
         </FormProvider>
     )

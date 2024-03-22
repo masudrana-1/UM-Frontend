@@ -1,5 +1,8 @@
 "use client"
 
+import { Input } from "antd";
+import { Controller, useFormContext } from "react-hook-form";
+
 interface IInput {
     name: string;
     type?: string;
@@ -11,11 +14,33 @@ interface IInput {
     label?: string;
 }
 
-const FormInput = () => {
+const FormInput = ({name,
+    type,
+    size,
+    value,
+    id,
+    placeholder,
+    validation,
+    label,
+}: IInput) => {
+
+    const { control } = useFormContext();
+
+
     return (
-        <div>
-            
-        </div>
+        <Controller
+            control={control}
+            name={name}
+            render={({ field }) => 
+                <Input
+                    type={type}
+                    size={size}
+                    placeholder={placeholder}
+                    {...field}
+                    value={value ? value : field.value}
+                />
+            }
+        />
     );
 };
 

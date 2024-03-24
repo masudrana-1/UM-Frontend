@@ -59,7 +59,7 @@ const LoginPage = () => {
                             />
                         </div>
                         <Button type="primary" htmlType="submit">
-                        Login
+                            Login
                         </Button>
                     </Form>
                 </div>
